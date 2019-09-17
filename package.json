@@ -1,0 +1,132 @@
+{
+  "name": "king-kong-ah-frontend",
+  "jest": {
+    "roots": [
+      "<rootDir>/src/"
+    ],
+    "verbose": true,
+    "moduleNameMapper": {
+      "\\.(jpg|ico|jpeg|png)$": "<rootDir>/src/__mocks__/fileMock.js",
+      "\\.(css|less)$": "<rootDir>/src/config/assetsTransformer.js",
+      "^<components>/(.*)$": "<rootDir>/src/components/$1",
+      "^<src>/(.*)$": "<rootDir>/src/$1",
+      "^<variables>/(.*)$": "<rootDir>/src/styles/variables/$1",
+      "^<pages>/(.*)$": "<rootDir>/src/components/pages/$1",
+      "^<homepage>/(.*)$": "<rootDir>/src/components/pages/Home/$1",
+      "^<core>/(.*)$": "<rootDir>/src/core/$1",
+      "^<fixtures>/(.*)$": "<rootDir>/src/fixtures/$1",
+      "^<atoms>/(.*)$": "<rootDir>/src/components/UI/atoms/$1",
+      "^<molecules>/(.*)$": "<rootDir>/src/components/UI/molecules/$1",
+      "^<helpers>/(.*)$": "<rootDir>/src/helpers/$1",
+      "^<api>/(.*)$": "<rootDir>/src/api/$1",
+      "^<organisms>/(.*)$": "<rootDir>/src/components/UI/organisms/$1",
+      "^<templates>/(.*)$": "<rootDir>/src/components/templates/$1",
+      "^<hooks>/(.*)$": "<rootDir>/src/hooks/$1",
+      "^<image>/(.*)$": "<rootDir>/public/assets/images/$1",
+      "^<HOC>/(.*)$": "<rootDir>/src/HOC/$1"
+    },
+    "coverageReporters": [
+      "json-summary",
+      "text",
+      "lcov"
+    ],
+    "collectCoverage": true,
+    "coveragePathIgnorePatterns": [
+      "<rootDir>/src/config/assetsTransformer.js",
+      "<rootDir>/(build|docs|node_modules)/"
+    ]
+  },
+  "version": "1.0.0",
+  "description": "## Vision",
+  "main": "webpack.config.js",
+  "scripts": {
+    "test": "jest --coverage",
+    "coveralls": "cat ./coverage/lcov.info | node node_modules/.bin/coveralls",
+    "heroku-postbuild": "npm run build:client",
+    "build:client": "webpack --env.mode production",
+    "start:client": "webpack-dev-server  --env.mode development --open",
+    "start": "node app.js",
+    "test:client": "jest src --watch",
+    "styleguide": "styleguidist server",
+    "styleguide:build": "styleguidist build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andela/king-kong-ah-frontend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andela/king-kong-ah-frontend/issues"
+  },
+  "homepage": "https://github.com/andela/king-kong-ah-frontend#readme",
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "devDependencies": {
+    "@babel/core": "^7.3.4",
+    "@babel/plugin-proposal-class-properties": "^7.3.4",
+    "@babel/plugin-proposal-object-rest-spread": "^7.3.4",
+    "@babel/plugin-transform-arrow-functions": "^7.2.0",
+    "@babel/plugin-transform-runtime": "^7.3.4",
+    "@babel/preset-env": "^7.3.4",
+    "@babel/preset-react": "^7.0.0",
+    "@babel/runtime": "^7.3.4",
+    "@testing-library/jest-dom": "^4.0.0",
+    "@testing-library/react": "^8.0.5",
+    "@testing-library/react-hooks": "^1.1.0",
+    "autoprefixer": "^9.4.10",
+    "babel-eslint": "^10.0.1",
+    "babel-loader": "^8.0.5",
+    "clean-webpack-plugin": "^3.0.0",
+    "coveralls": "^3.0.4",
+    "css-loader": "^3.0.0",
+    "error-overlay-webpack-plugin": "^0.4.0",
+    "eslint": "^6.0.1",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-react": "^7.12.4",
+    "file-loader": "^4.0.0",
+    "html-webpack-plugin": "^3.2.0",
+    "husky": "^3.0.0",
+    "jest": "^24.8.0",
+    "lint-staged": "^9.0.0",
+    "mini-css-extract-plugin": "^0.8.0",
+    "react-styleguidist": "^9.1.11",
+    "react-test-renderer": "^16.8.6",
+    "style-loader": "^1.0.0",
+    "uglifyjs-webpack-plugin": "^2.1.2",
+    "webpack-dev-server": "^3.2.1"
+  },
+  "dependencies": {
+    "axios": "^0.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "http-proxy-middleware": "^0.19.1",
+    "jest-dom": "^4.0.0",
+    "lodash.isempty": "^4.4.0",
+    "prop-types": "^15.7.2",
+    "react": "^16.8.6",
+    "react-countup": "^4.2.0",
+    "react-dom": "^16.8.6",
+    "react-router-dom": "^5.0.1",
+    "react-spinners": "^0.5.12",
+    "react-toastify": "^5.3.2",
+    "styled-components": "^4.3.2",
+    "styled-icons": "^8.1.0",
+    "validatorjs": "^3.15.1",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.3.6",
+    "webpack-merge": "^4.2.1"
+  }
+}
